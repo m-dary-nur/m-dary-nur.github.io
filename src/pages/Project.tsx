@@ -16,18 +16,26 @@ interface ILanguage {
 
 interface IProject {
    name: string
+   desc: string
    image: string
    front: ILanguage[]
    style: ILanguage[]
    back: ILanguage[]
    database: string
+   contribution: string
+   live?: {
+      url: string
+      desc: string
+   }
 }
 
 const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProjectProps>((_, ref) => {
    const projects: IProject[] = [
       {
          name: "Cashier System",
+         desc: "System to record selling item.",
          image: require("../images/cashier.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -72,7 +80,9 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "Museum Ticketing System",
+         desc: "System to record selling ticket and visitor.",
          image: require("../images/museum.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -117,7 +127,9 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "Clinic Internal System",
+         desc: "System to record and report patient in/out and transaction.",
          image: require("../images/clinic.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -166,7 +178,9 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "Inventory System",
+         desc: "System to record and report in/out of gallons water on a drinking water company.",
          image: require("../images/inventory.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -215,7 +229,9 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "POS System",
+         desc: "System to record and simply report selling item and in/out of stocks.",
          image: require("../images/pos.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -264,7 +280,13 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "ERP and accounting System",
+         desc: "An ERP System with accounting.",
          image: require("../images/erp.png"),
+         contribution: "80%",
+         live: {
+            url: "https://xfocus.id",
+            desc: "LOGIN ACCESS \r\nClient Code: 111 \r\nUsername: aw \r\n Password: aw",
+         },
          front: [
             {
                label: "Javascript",
@@ -311,7 +333,13 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "Tax Consultant Report System",
+         desc: "System to report and tracks schedule between consultants and the clients.",
          image: require("../images/consultant.png"),
+         contribution: "100%",
+         live: {
+            url: "https://konsultan.miniera.tech",
+            desc: "LOGIN ACCESS \r\nKode Registrasi: 007 \r\nEmail: m.dary.nur@gmail.com \r\nPassword: 123",
+         },
          front: [
             {
                label: "Javascript",
@@ -354,7 +382,9 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
       },
       {
          name: "My Profile",
+         desc: "my simple personal profile.",
          image: require("../images/profile.png"),
+         contribution: "100%",
          front: [
             {
                label: "Javascript",
@@ -409,7 +439,7 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
             </div>
          </div>
          <div className="w-full md:w-5/6 mx-auto my-5 flex flex-col md:flex-row md:flex-wrap justify-evenly">
-            {projects.map(({ name, image, front, style, back, database }: IProject) => (
+            {projects.map(({ name, image, front, style, back, database, desc, live }: IProject) => (
                <div
                   key={name}
                   className="flex flex-col flex-1 justify-start items-center m-2 md:m-4 px-4 md:px-6 py-4 bg-white border border-gray-200 hover:shadow-lg rounded-lg transition-all duration-300"
@@ -417,6 +447,11 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
                   <img src={image} alt={name} className="w-full h-auto my-2 border-2 border:gray-300 rounded-lg" />
                   <div className="w-full">
                      <ul className="list-none">
+                        <li className="py-2 flex flex-row">
+                           <label title={desc} className="px-2 text-base text-gray-700 italic">
+                              {desc}
+                           </label>
+                        </li>
                         <li className="py-2 flex flex-row">
                            <span className="w-5/12 text-base whitespace-no-wrap">Client language</span>
                            {front.map(item => (
@@ -464,6 +499,24 @@ const Project: React.FC<IProjectProps> = React.forwardRef<HTMLDivElement, IProje
                            <label title={database} className="px-2 text-base font-bold">
                               {database}
                            </label>
+                        </li>
+                        <li className="py-2 flex flex-row">
+                           <span className="w-5/12 text-base whitespace-no-wrap">Live Site</span>
+                           {live ? (
+                              <div className="flex flex-col">
+                                 <a
+                                    href={live.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-2 pb-4 text-base font-bold text-gray-700"
+                                 >
+                                    {live.url}
+                                 </a>
+                                 <p className="px-2 whitespace-pre-line">{live.desc}</p>
+                              </div>
+                           ) : (
+                              <span className="text-gray-500 px-2">Unavailable</span>
+                           )}
                         </li>
                      </ul>
                   </div>

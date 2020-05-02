@@ -83,7 +83,7 @@ const Nav: React.FC<INavProps> = ({ refs, screenRef }) => {
    // ===============================================================================
 
    return (
-      <div className="w-full md:w-10/12 flex h-16 px-4 md:mx-auto justify-between items-center border-b border-gray-200">
+      <div className="w-full flex h-16 px-4 md:mx-auto justify-between items-center border-b border-gray-200">
          <h3 className="whitespace-no-wrap font-bold text-sm md:text-base">
             <code className="text-yellow-500 font-bold">{"{"}</code> made with{" "}
             <Icon name="heart" className="text-red-500" alt="love" /> and{" "}
