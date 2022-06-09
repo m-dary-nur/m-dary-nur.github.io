@@ -26,23 +26,44 @@ interface NavButtonProps {
 	ref?: React.RefObject<HTMLDivElement>;
 	icon: IconName;
 	label: string;
-	color: string;
+	textColor: string;
+	borderColor: string;
+	hoverTextColor: string;
+	hoverBorderColor: string;
 	isSection: boolean;
 	onClick: (e: ButtonClickEvent) => void;
 }
 
 const NavButton: React.FC<NavButtonProps> = memo(
-	React.forwardRef(({ isSection, icon, label, color, onClick }, ref: any) => (
-		<button
-			ref={ref}
-			onClick={onClick}
-			className={`w-full md:w-auto p-4 md:mx-2 md:py-1 cursor-pointer text-sm text-right md:text-center font-bold uppercase border-b-2 
-      ${isSection ? `text-${color} border-${color}` : 'border-transparent'}
-      hover:border-${color} hover:text-${color} transition-all duration-200`}
-		>
-			<Icon name={icon} size="lg" /> {label}
-		</button>
-	))
+	React.forwardRef(
+		(
+			{
+				isSection,
+				icon,
+				label,
+				textColor,
+				borderColor,
+				hoverTextColor,
+				hoverBorderColor,
+				onClick,
+			},
+			ref: any
+		) => (
+			<button
+				ref={ref}
+				onClick={onClick}
+				className={`w-full md:w-auto p-4 md:mx-2 md:py-1 cursor-pointer text-sm text-right md:text-center font-bold uppercase border-b-2 
+					${
+						isSection
+							? `${textColor} ${borderColor}`
+							: `border-transparent ${hoverBorderColor} ${hoverTextColor} transition-all duration-200`
+					}
+				`}
+			>
+				<Icon name={icon} size="lg" /> {label}
+			</button>
+		)
+	)
 );
 
 const Nav: React.FC<NavProps> = ({ screenRef, sectionRefs }) => {
@@ -53,6 +74,7 @@ const Nav: React.FC<NavProps> = ({ screenRef, sectionRefs }) => {
 		(i: number) => () => {
 			if (sectionRefs[i]?.current) {
 				sectionRefs[i]?.current?.scrollIntoView!({ behavior: 'smooth' });
+				setActive(i);
 			}
 		},
 		[sectionRefs]
@@ -60,22 +82,17 @@ const Nav: React.FC<NavProps> = ({ screenRef, sectionRefs }) => {
 
 	useEffect(() => {
 		const handle = () => {
-			console.log('in');
-			let currentSectionId = active;
 			for (let i = 0; i < sectionRefs.length; i++) {
 				const iRef = sectionRefs[i];
 				if (iRef?.current) {
-					console.log('in', i);
 					const section = iRef.current;
 					if (!section || !(section instanceof Element)) continue;
 					if (section.getBoundingClientRect().top - 91 < 0) {
-						currentSectionId = i;
 						continue;
 					}
 				}
 				break;
 			}
-			setActive(currentSectionId);
 		};
 
 		const myRef = screenRef;
@@ -89,7 +106,7 @@ const Nav: React.FC<NavProps> = ({ screenRef, sectionRefs }) => {
 	}, [active, screenRef, sectionRefs]);
 
 	return (
-		<div className="w-full md:w-5/6 bg-white flex h-24 px-4 md:px-20 md:mx-auto justify-between items-center border-b border-gray-200">
+		<div className="w-full bg-white flex h-24 px-4 md:px-20 md:mx-auto justify-between items-center border-b border-gray-200">
 			<h3 className="whitespace-no-wrap font-bold text-sm md:text-base">
 				<code className="text-yellow-500 font-bold">{'{'}</code> made with{' '}
 				<Icon name="heart" className="text-red-500" alt="love" /> and{' '}
@@ -144,7 +161,7 @@ const Nav: React.FC<NavProps> = ({ screenRef, sectionRefs }) => {
 					</Link>
 				</div>
 			</div>
-			<div className="hidden md:flex w-full top-0 left-0 mt-16 md:mt-0 md:left-auto md:relative z-50">
+			<div className="hidden flex-1 md:flex top-0 left-0 mt-16 md:mt-0 md:left-auto md:relative z-50">
 				<div className="w-full flex flex-row justify-end items-center z-50">
 					{sections.map((nav, i) => (
 						<NavButton

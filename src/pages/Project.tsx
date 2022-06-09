@@ -55,7 +55,7 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>((_, ref) => {
 										{front.map((item) => (
 											<div
 												key={item.label}
-												className={`px-2 text-${item.color} text-base font-bold`}
+												className={`px-2 ${item.textColor} text-base font-bold`}
 											>
 												{item.icon ? (
 													<Icon
@@ -82,7 +82,7 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>((_, ref) => {
 										{style.map((item) => (
 											<div
 												key={item.label}
-												className={`px-2 text-${item.color} text-base font-bold`}
+												className={`px-2 ${item.textColor} text-base font-bold`}
 											>
 												{item.icon ? (
 													<Icon
@@ -109,7 +109,7 @@ const Project = React.forwardRef<HTMLDivElement, ProjectProps>((_, ref) => {
 										{back.map((item) => (
 											<div
 												key={item.label}
-												className={`px-2 text-${item.color} text-base font-bold`}
+												className={`px-2 ${item.textColor} text-base font-bold`}
 											>
 												{item.icon ? (
 													<Icon

@@ -22,7 +22,7 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
 					style={{ left: 14 }}
 				/>
 				<ul className="list-none m-0 p-0">
-					{experiences.map(({ company, color, sub, jobdesk }, i) => (
+					{experiences.map(({ company, textColor, sub, jobdesk }, i) => (
 						<li key={sub} className="mb-4">
 							<div className="flex items-center mb-1">
 								<div
@@ -33,7 +33,7 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
 									} rounded-full h-8 w-8 z-10`}
 								/>
 								<div className="flex flex-1 flex-col ml-4 font-medium justify-center items-start">
-									<span className={`text-${color} text-lg`}>{company}</span>
+									<span className={`${textColor} text-lg`}>{company}</span>
 									<span className="text-base">{sub}</span>
 								</div>
 							</div>

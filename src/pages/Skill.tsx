@@ -32,7 +32,7 @@ const Skill = React.forwardRef<HTMLDivElement, SkillProps>((_, ref) => (
 							</h3>
 						</div>
 						{content.map(
-							({ label, extra, icon, prefix, color, precentage, initial }) => (
+							({ label, extra, icon, prefix, textColor, bgColor, precentage, initial }) => (
 								<div
 									key={label}
 									className="py-2 flex flex-row justify-center items-center"
@@ -43,7 +43,7 @@ const Skill = React.forwardRef<HTMLDivElement, SkillProps>((_, ref) => (
 												name={icon}
 												prefix={prefix}
 												size="2x"
-												className={`text-${color}`}
+												className={textColor}
 												alt={label}
 											/>
 										) : (
@@ -61,7 +61,7 @@ const Skill = React.forwardRef<HTMLDivElement, SkillProps>((_, ref) => (
 									<div className="w-full flex flex-no-wrap text-yellow-500 justify-center items-center">
 										<div className="w-full">
 											<div
-												className={`py-0 bg-${color} rounded-lg`}
+												className={`py-0 ${bgColor} rounded-lg`}
 												style={{ width: `${precentage * 20}%` }}
 											>
 												<span className="text-xs text-white text-center ml-2 leading-loose whitespace-no-wrap">{`${precentage} (${initial})`}</span>

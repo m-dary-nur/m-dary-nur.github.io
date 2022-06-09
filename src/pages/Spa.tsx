@@ -1,4 +1,4 @@
-import React, { Dispatch, memo, SetStateAction } from 'react';
+import React, { Dispatch, memo, SetStateAction, useCallback } from 'react';
 import { SectionRef } from '../helpers/types';
 
 import Intro from './Intro';
@@ -14,13 +14,21 @@ export interface ISpaProps {
 	setView: Dispatch<SetStateAction<string>>;
 }
 
-const Spa: React.FC<ISpaProps> = ({ screenRef, sectionRefs }) => (
+const Spa: React.FC<ISpaProps> = ({ screenRef, sectionRefs }) => {
+	
+	const gotoAbout = useCallback(() => {
+		if (sectionRefs[1]?.current) {
+			sectionRefs[1]?.current?.scrollIntoView!({ behavior: 'smooth' });
+		}
+	}, [sectionRefs]);
+
+	return (
 	<div
 		ref={screenRef}
-		className="overflow-y-auto bg-gray-100"
+		className="overflow-y-auto bg-gray-50"
 		style={{ height: 'calc(100vh - 90px)' }}
 	>
-		<Intro ref={sectionRefs[0]} />
+		<Intro ref={sectionRefs[0]} onClick={gotoAbout} />
 		<About ref={sectionRefs[1]} />
 		<Skill ref={sectionRefs[2]} />
 		<Experience ref={sectionRefs[3]} />
@@ -32,6 +40,6 @@ const Spa: React.FC<ISpaProps> = ({ screenRef, sectionRefs }) => (
 			</h2>
 		</div>
 	</div>
-);
+)};
 
 export default memo(Spa);

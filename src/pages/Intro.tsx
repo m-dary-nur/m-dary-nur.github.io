@@ -40,7 +40,7 @@ const Intro = React.forwardRef<HTMLDivElement, IntroProps>(
 					</div>
 				</div>
 				<div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-evenly items-center px-10 pt-32 pb-10">
-					{contacts.map(({ label, link, newTab, icon, prefix, color }) => (
+					{contacts.map(({ label, link, newTab, icon, prefix, textColor }) => (
 						<div
 							key={label}
 							className=" cursor-pointer px-2 py-1 flex items-center"
@@ -49,7 +49,7 @@ const Intro = React.forwardRef<HTMLDivElement, IntroProps>(
 								name={icon}
 								prefix={prefix}
 								size="2x"
-								className={`text-${color} pr-1`}
+								className={`${textColor} pr-1`}
 							/>{' '}
 							<a
 								href={link}

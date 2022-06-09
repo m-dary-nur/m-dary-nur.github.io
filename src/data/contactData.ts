@@ -6,7 +6,7 @@ interface Contact {
 	newTab: boolean;
 	icon: IconName;
 	prefix: IconPrefix;
-	color: string;
+	textColor: string;
 }
 
 const contacts: Contact[] = [
@@ -16,7 +16,7 @@ const contacts: Contact[] = [
 		newTab: false,
 		icon: 'envelope',
 		prefix: 'far',
-		color: 'red-500',
+		textColor: 'text-red-500',
 	},
 	{
 		label: '+6285157778815',
@@ -24,7 +24,7 @@ const contacts: Contact[] = [
 		newTab: true,
 		icon: 'whatsapp',
 		prefix: 'fab',
-		color: 'green-500',
+		textColor: 'text-green-500',
 	},
 	{
 		label: 'M. Dary N.R.',
@@ -32,7 +32,7 @@ const contacts: Contact[] = [
 		newTab: true,
 		icon: 'linkedin',
 		prefix: 'fab',
-		color: 'blue-700',
+		textColor: 'text-blue-700',
 	},
 	{
 		label: 'm-dary-nur',
@@ -40,7 +40,7 @@ const contacts: Contact[] = [
 		newTab: true,
 		icon: 'github',
 		prefix: 'fab',
-		color: 'gray-800',
+		textColor: 'text-gray-800',
 	},
 ];
 

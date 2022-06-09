@@ -36,10 +36,10 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>((_, ref) => (
 			</h1>
 		</div>
 		<div className="w-10/12 md:w-5/6 mx-auto my-5 flex flex-col md:flex-row justify-evenly">
-			{about.map(({ icon, label, color, description }) => (
+			{about.map(({ icon, label, hoverBg, hoverBorder, description }) => (
 				<div
 					key={label}
-					className={`flex flex-col flex-1 justify-center items-center m-4 px-6 py-4 bg-white border border-gray-200 hover:border-${color} hover:text-white hover:bg-${color} hover:shadow-lg rounded-lg transition-all duration-300`}
+					className={`flex flex-col flex-1 justify-center items-center m-4 px-6 py-4 bg-white border border-gray-200 ${hoverBorder} hover:text-white ${hoverBg} hover:shadow-lg rounded-lg transition-all duration-300`}
 				>
 					<div className="mt-4 mb-2">
 						<Icon name={icon} size="4x" />

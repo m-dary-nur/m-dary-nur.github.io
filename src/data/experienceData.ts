@@ -1,14 +1,14 @@
 interface Experience {
 	company: string;
 	sub: string;
-	color: string;
+	textColor: string;
 	jobdesk: string[];
 }
 
 const experiences: Experience[] = [
 	{
 		company: 'CV. Expressa',
-		color: 'profile',
+		textColor: 'text-profile',
 		sub: 'Sep 2014 - Nov 2015 ( PHP Web Programmer )',
 		jobdesk: [
 			'Update Features.',
@@ -18,13 +18,13 @@ const experiences: Experience[] = [
 	},
 	{
 		company: 'Freelance',
-		color: 'yellow-500',
+		textColor: 'text-yellow-500',
 		sub: 'Nov 2015 - Nov 2016 ( PHP / JQuery Fullstack Developer )',
 		jobdesk: ['Update Features.', 'Bugs & Error fixing.'],
 	},
 	{
 		company: 'PT. Tiga Inti Perkasa Tech',
-		color: 'red-500',
+		textColor: 'text-red-500',
 		sub: 'Nov 2016 - Jan 2020 ( Senior Fullstack Engineer )',
 		jobdesk: [
 			'Team Lead.',
@@ -39,7 +39,7 @@ const experiences: Experience[] = [
 	},
 	{
 		company: 'Freelance',
-		color: 'yellow-500',
+		textColor: 'text-yellow-500',
 		sub: 'Jan 2020 - Current ( Fronend Engineer )',
 		jobdesk: [
 			'Slicing UI Design to App UI',
