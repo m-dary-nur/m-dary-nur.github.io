@@ -1,7 +1,10 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
+  "homepage": "https://m-dary-nur.github.io",
+  "name": "m-dary-nur.github.io",
+  "version": "1.0.1",
+  "author": "muhammad dary nur rabbani <m.dary.nur@gmail.com",
+  "description": "my cv",
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
@@ -53,6 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router": "^5.1.18"
+    "@types/react-router": "^5.1.18",
+    "gh-pages": "^4.0.0"
   }
 }
