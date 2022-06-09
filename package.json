@@ -22,9 +22,15 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.0.24",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/react-router": "^5.1.18",
+    "autoprefixer": "^10.4.7",
+    "gh-pages": "^4.0.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=jsx,ts,tsx src",
+    "prebuild": "npx tailwindcss -o style.css --minify",
     "predeploy": "yarn build",
     "deploy": "gh-pages -b master -d build"
   },
@@ -52,9 +59,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-router": "^5.1.18",
-    "gh-pages": "^4.0.0"
   }
 }
