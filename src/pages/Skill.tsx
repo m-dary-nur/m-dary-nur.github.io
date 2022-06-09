@@ -35,7 +35,7 @@ const Skill = React.forwardRef<HTMLDivElement, SkillProps>((_, ref) => (
 							({ label, extra, icon, prefix, textColor, bgColor, precentage, initial }) => (
 								<div
 									key={label}
-									className="py-2 flex flex-row justify-center items-center"
+									className="px-4 py-2 flex flex-row justify-center items-center"
 								>
 									<div className="text-gray-600 w-7/12 flex items-center">
 										{icon ? (
