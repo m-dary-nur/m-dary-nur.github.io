@@ -31,7 +31,7 @@
     "prestart": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
     "prebuild": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
     "lint": "eslint --ext=jsx,ts,tsx src",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {

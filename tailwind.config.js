@@ -12,7 +12,7 @@ module.exports = {
     },
     colors: ({ colors }) => ({
       profile: {
-        default: "#1A73E8",
+        DEFAULT: "#1A73E8",
         100: "#E8F1FD",
         200: "#C6DCF9",
         300: "#A3C7F6",
