@@ -38,9 +38,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=jsx,ts,tsx src",
-    "prebuild": "npx tailwindcss -i src/styles/css-loader.css -o src/styles/style.css --minify",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -b master -d build"
+    "prebuild": "NODE_ENV=production npx tailwindcss -i src/styles/css-loader.css -o src/styles/style.css --minify",
+    "predeploy": "NODE_ENV=production yarn build",
+    "deploy": "NODE_ENV=production gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
