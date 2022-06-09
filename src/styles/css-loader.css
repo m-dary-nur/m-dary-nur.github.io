@@ -33,7 +33,7 @@ html, body {
         font-size: 0.875rem;
     }
     .height-dinamicly {
-        height: calc(100vh - 160px);
+        height: calc(100vh - 90px);
     }
     .zaplin-select + label, 
     .control > input:placeholder-shown + label, 

@@ -1,28 +1,48 @@
-import React, { memo, useEffect, useRef } from "react"
-import { Router } from "react-router"
+import { memo, useEffect, useRef, useState } from 'react';
+import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
-import Nav from "./components/Nav"
-import Routes from "./components/Routes"
-import history from "./helpers/history"
+import Nav from './components/Nav';
+import Spa from './pages/Spa';
 
-const Root: React.FC = () => {
-   const refs = [useRef(), useRef(), useRef(), useRef(), useRef()]
-   const screenRef = useRef()
+const App = memo(() => {
+	const screenRef = useRef<HTMLDivElement>(null);
+	const sectionRefs = [
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+		useRef<HTMLDivElement>(null),
+	];
 
-   useEffect(() => {
-      document.title = "Muhammad Dary Nur Rabbani"
-   })
+	const [view, setView] = useState('');
 
-   return (
-      <Router history={history}>
-         <div className="w-full h-screen bg-white text-base text-gray-600 font-sans">
-            <Nav {...{ refs, screenRef }} />
-            <div>
-               <Routes {...{ refs, screenRef }} />
-            </div>
-         </div>
-      </Router>
-   )
-}
+	useEffect(() => {
+		document.title = 'Muhammad Dary Nur Rabbani';
+	});
 
-export default memo(Root)
+	return (
+		<BrowserRouter>
+			<div className="w-full h-screen bg-gray-50 text-base text-gray-600 font-sans">
+				<Nav
+					screenRef={screenRef}
+					sectionRefs={sectionRefs}
+					view={view}
+					setView={setView}
+				/>
+				<div>
+					<Routes>
+						<Route
+							path="/"
+							element={
+								<Spa screenRef={screenRef} sectionRefs={sectionRefs} view={view} setView={setView} />
+							}
+						/>
+					</Routes>
+				</div>
+			</div>
+		</BrowserRouter>
+	);
+});
+
+export default App;

@@ -1,55 +1,45 @@
 {
-  "homepage": "https://m-dary-nur.github.io",
-  "name": "m-dary-nur.github.io",
-  "version": "1.0.0",
-  "author": "muhammad dary nur rabbani <m.dary.nur@gmail.com",
-  "description": "my profile web app",
-  "license": "MIT",
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-brands-svg-icons": "^5.13.0",
-    "@fortawesome/pro-regular-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
-    "@m-dary-nur/react-virtual-list": "^1.2.0",
-    "@testing-library/dom": "^7.2.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/crypto-js": "^3.1.45",
-    "@types/history": "^4.7.5",
-    "@types/jest": "^24.0.0",
-    "@types/js-cookie": "^2.2.6",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-fontawesome": "^1.6.4",
-    "@types/react-router": "^5.1.7",
-    "@types/react-router-dom": "^5.1.5",
-    "crypto-js": "^4.0.0",
-    "history": "^4.10.1",
-    "immutable": "^4.0.0-rc.12",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "seamless-immutable": "^7.1.4",
-    "tailwindcss": "^1.4.0",
-    "typescript": "~3.7.2"
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/pro-regular-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "history": "4.10.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "prestart": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
     "start": "react-scripts start",
-    "prebuild": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prestart": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
+    "prebuild": "tailwind build ./src/styles/css-loader.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
     "lint": "eslint --ext=jsx,ts,tsx src",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -64,17 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
-    "eslint": "6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "2.5.0",
-    "gh-pages": "^2.2.0",
-    "prettier": "^2.0.5"
+    "@types/react-router": "^5.1.18"
   }
 }
